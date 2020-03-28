@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratorio2definitivo", "Laboratorio2definitivo.csproj", "{A2CEE733-0C88-4B79-9D3C-999601745DD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2CEE733-0C88-4B79-9D3C-999601745DD1}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{A2CEE733-0C88-4B79-9D3C-999601745DD1}.Debug|anycpu.Build.0 = Debug|anycpu
+		{A2CEE733-0C88-4B79-9D3C-999601745DD1}.Release|anycpu.ActiveCfg = Release|anycpu
+		{A2CEE733-0C88-4B79-9D3C-999601745DD1}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
