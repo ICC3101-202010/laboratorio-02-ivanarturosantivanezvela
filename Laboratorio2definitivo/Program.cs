@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Laboratorio2definitivo
 {
@@ -6,7 +7,174 @@ namespace Laboratorio2definitivo
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            bool closeprogram = false;
+            Console.WriteLine("Bienvenido a Espotifai!");
+            Espotifai espotifai = new Espotifai();
+            while (!closeprogram)
+            {
+                Console.WriteLine("Los comandos disponibles son:");
+
+                Console.WriteLine("1: Agregar cancion a la playlist");
+                Console.WriteLine("2: Ver canciones en la playlist");
+                Console.WriteLine("3: Ver canciones por criterio");
+                Console.WriteLine("0: Salir del programa");
+                string comando = Console.ReadLine();
+
+                if (comando == "0")
+                {
+
+                    closeprogram = true;
+                    Console.WriteLine("Cerraste Espotifai adios!!!!");
+
+                }
+
+                if (comando == "1")
+                {
+
+                    // Nombre cancion
+                    string nombre_cancion = "";
+                    bool nombreValido = false;
+                    while (!nombreValido)
+                    {
+                        Console.WriteLine("Ingresa el nombre de la cancion:");
+                        nombre_cancion = Console.ReadLine();
+                        if (nombre_cancion.Trim() != "")
+                        {
+                            nombreValido = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Debes ingresar un nombre de cancion válido");
+                        }
+                        // Nombre del album
+                        string nombre_album = "";
+                        Console.WriteLine("Ingrese el nombre del album: ");
+
+                        nombre_album = Console.ReadLine();
+
+                        if (nombre_album.Trim() != "")
+                        {
+
+                            nombreValido = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Debes ingresar un nombre de album válido");
+
+                        }
+                        string nombre_artista = "";
+                        Console.WriteLine("Ingrese el nombre del artista: ");
+                        nombre_artista = Console.ReadLine();
+                        if (nombre_artista.Trim() != "")
+                        {
+                            nombreValido = true;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Debes ingresar un nombre de artista válido");
+                        }
+
+                        string nombre_genero = "";
+                        Console.WriteLine("Escriba el nombre del genero de la cancion: ");
+                        nombre_genero = Console.ReadLine();
+                        if (nombre_genero.Trim() != "")
+                        {
+                            nombreValido = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Debes ingresar un nombre de genero válido");
+                        }
+                        Cancion cancion = new Cancion(nombre_cancion, nombre_album, nombre_artista, nombre_genero);
+
+                        espotifai.AgregarCancion(cancion);
+
+                    }
+                }
+
+                if (comando == "2")
+                {
+
+                    espotifai.VerCanciones();
+                }
+
+                if (comando == "3")
+                {
+                    string criterio_usuario = "";
+                    Console.WriteLine("Ingresa el criterio de la cancion:");
+                    criterio_usuario = Console.ReadLine();
+                    string valor_usuario = "";
+                    Console.WriteLine("Ingresa el valor de la cancion:");
+                    valor_usuario = Console.ReadLine();
+                    espotifai.CancionesPorCriterio(criterio_usuario, valor_usuario);
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //Cancion cancion = new Cancion("Lights","Lights","Ellie","Pop");
+                //Cancion cancion1 = new Cancion ("Colors","Flow","Flow","Kpop");
+                //Espotifai espotifai = new Espotifai();
+
+
+                //espotifai.AgregarCancion(cancion);
+
+                //espotifai.VerCanciones();
+
+
+
+                //espotifai.AgregarCancion(cancion);
+
+                //List<Cancion> espotifai = new List<Cancion>();
+                //Espotifai espotifai = new Espotifai();
+
+                //espotifai.Add(cancion);
+
+                //Cancion cancioncita = espotifai.listcanciones[0];
+                //Console.WriteLine(cancioncita.Album);
+                //Console.WriteLine(cancioncita.Nombre);
+
+
+
+
+
+
+
+                //Cancion cancion1 = new Cancion ("Colors","Flow","Flow","Kpop");
+
+
+
+
+
+                //Console.WriteLine(cancion.Informacion());
+            }
         }
     }
 }
+
+
+
