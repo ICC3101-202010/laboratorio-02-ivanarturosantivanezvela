@@ -14,8 +14,8 @@ namespace Laboratorio2definitivo
             {
                 Console.WriteLine("Los comandos disponibles son:");
 
-                Console.WriteLine("1: Agregar cancion a la playlist");
-                Console.WriteLine("2: Ver canciones en la playlist");
+                Console.WriteLine("1: Agregar cancion a Espotifai");
+                Console.WriteLine("2: Ver canciones en Espotifai");
                 Console.WriteLine("3: Ver canciones por criterio");
                 Console.WriteLine("0: Salir del programa");
                 string comando = Console.ReadLine();

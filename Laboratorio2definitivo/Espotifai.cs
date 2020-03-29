@@ -5,16 +5,17 @@ namespace Laboratorio2definitivo
     public class Espotifai
     {
         public List<Cancion> listcanciones;
+        public List<Playlist> Playlistespotifai;
 
 
 
-
+    
 
 
         public Espotifai()
         {
             listcanciones = new List<Cancion>();
-
+            Playlistespotifai = new List<Playlist>();
 
         }
 
@@ -30,7 +31,7 @@ namespace Laboratorio2definitivo
             {
 
 
-                if (variable.Nombre == cancion.Nombre && variable.Album == cancion.Album && variable.Artista == cancion.Artista && variable.Genero == cancion.Genero)
+                if (variable.Nombre == cancion.Nombre && variable.Album == cancion.Album && variable.Artista == cancion.Artista)
                 {
 
                     Console.WriteLine("No se puede agregar cancion repetida");
@@ -86,7 +87,7 @@ namespace Laboratorio2definitivo
                     }
                     else
                     {
-                        Console.WriteLine("No hay canciones con ese criterio y valor");
+                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
                         return listcanciones;
                     }
 
@@ -101,7 +102,7 @@ namespace Laboratorio2definitivo
                     }
                     else
                     {
-                        Console.WriteLine("No hay canciones con ese criterio y valor");
+                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
                         return listcanciones;
                     }
                 }
@@ -115,7 +116,7 @@ namespace Laboratorio2definitivo
                     }
                     else
                     {
-                        Console.WriteLine("No hay canciones con ese criterio y valor");
+                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
                         return listcanciones;
                     }
                 }
@@ -129,7 +130,7 @@ namespace Laboratorio2definitivo
                     }
                     else
                     {
-                        Console.WriteLine("No hay canciones con ese criterio y valor");
+                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
                         return listcanciones;
                     }
                 }
@@ -137,7 +138,7 @@ namespace Laboratorio2definitivo
                 {
 
 
-                    Console.WriteLine("No hay canciones con ese criterio y valor");
+                    Console.WriteLine("No hay canciones con ese criterio y/o valor");
                     return listcanciones;
 
                 }
@@ -150,7 +151,60 @@ namespace Laboratorio2definitivo
 
             return listcanciones;
         }
+        public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
+
+        {
+            Playlist playlist = new Playlist(nombrePlaylist);
+            foreach(Playlist lista_playlist in Playlistespotifai)
+            {
+                  if (lista_playlist.Nombre_playlist == nombrePlaylist)
+                  {
+                    Console.WriteLine("Ya hay una playlist con ese nombre");
+                    return false;
+
+                  }
+
+                  else if (CancionesPorCriterio(criterio, valorCriterio).Count == 0)
+                  {
+
+                    Console.WriteLine("No existe canciones que cumplan con el criterio");
+                    return false;
+
+                  }
+
+                  else
+                  {  
+
+                    foreach(Cancion parametro in CancionesPorCriterio(criterio, valorCriterio))
+                    {
+
+                        pla
+
+
+                    }
+
+                  }
+                  
+
+
+            }
+
+            return true;   
+        }
+
+        
+    
+
+
+
+
+
+
+
+
+
     }
+
 }
 
 
