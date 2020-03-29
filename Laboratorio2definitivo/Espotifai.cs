@@ -156,41 +156,45 @@ namespace Laboratorio2definitivo
         {
             
             Playlist playlist = new Playlist(nombrePlaylist,listcanciones);
+            Playlistespotifai.Add(playlist);
             
            
             foreach(Playlist lista_playlist in Playlistespotifai)
             {
-                  
-                  if (lista_playlist.Nombre_playlist == nombrePlaylist)
+               int ronda = 0;
+                  if (lista_playlist.Nombre_playlist == nombrePlaylist && ronda!=0)
                   {
+                    
                     Console.WriteLine("Ya hay una playlist con ese nombre");
                     return false;
 
                   }
 
-                  else if (CancionesPorCriterio(criterio, valorCriterio).Count == 0)
-                  {
+                foreach (Cancion elemento in listcanciones)
+                {
 
-                    Console.WriteLine("No existe canciones que cumplan con el criterio");
-                    return false;
+                    if (criterio == "Genero")
 
-                  }
-
-                  else
-                  {  
-
-                    foreach(Cancion parametro in CancionesPorCriterio(criterio, valorCriterio))
                     {
-                        Playlistespotifai.Add(lista_playlist);
-                        playlist.Usuario_playlist.Add(parametro);
-                        
-                        return true;
+                        if (elemento.Genero == valorCriterio)
+                        {
+
+                            playlist.Usuario_playlist.Add(elemento);
+                            Console.WriteLine(1);
+                            return true;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay playlist con ese criterio y/o valor");
+                            return false;
+                        }
 
                     }
 
-                  }
-                  
-
+                    
+                }  
+                ronda++;
 
             }
 
@@ -199,13 +203,12 @@ namespace Laboratorio2definitivo
         public String VerMisPlaylists()
         {
 
-            foreach(Playlist recorrido in Playlistespotifai)
+            foreach (Playlist recorrido in Playlistespotifai)
             {
+                Console.WriteLine(recorrido.Nombre_playlist);
                 
-
             }
             return "";
-         
         }
 
 

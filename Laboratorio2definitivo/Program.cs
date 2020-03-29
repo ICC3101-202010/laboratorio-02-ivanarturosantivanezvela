@@ -10,6 +10,7 @@ namespace Laboratorio2definitivo
             bool closeprogram = false;
             Console.WriteLine("Bienvenido a Espotifai!");
             Espotifai espotifai = new Espotifai();
+            
             while (!closeprogram)
             {
                 Console.WriteLine("Los comandos disponibles son:");
@@ -18,6 +19,7 @@ namespace Laboratorio2definitivo
                 Console.WriteLine("2: Ver canciones en Espotifai");
                 Console.WriteLine("3: Ver canciones por criterio");
                 Console.WriteLine("4: Agregar cancion a la playlist ");
+                Console.WriteLine("5: Ver las palylist");
                 Console.WriteLine("0: Salir del programa");
                 string comando = Console.ReadLine();
 
@@ -132,10 +134,17 @@ namespace Laboratorio2definitivo
 
 
                 }
+                if (comando == "5")
+                {
+
+                    espotifai.VerMisPlaylists();
 
 
+                }
 
 
+                
+   
 
 
 
