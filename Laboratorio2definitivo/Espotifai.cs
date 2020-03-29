@@ -154,9 +154,13 @@ namespace Laboratorio2definitivo
         public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
 
         {
-            Playlist playlist = new Playlist(nombrePlaylist);
+            
+            Playlist playlist = new Playlist(nombrePlaylist,listcanciones);
+            
+           
             foreach(Playlist lista_playlist in Playlistespotifai)
             {
+                  
                   if (lista_playlist.Nombre_playlist == nombrePlaylist)
                   {
                     Console.WriteLine("Ya hay una playlist con ese nombre");
@@ -177,9 +181,10 @@ namespace Laboratorio2definitivo
 
                     foreach(Cancion parametro in CancionesPorCriterio(criterio, valorCriterio))
                     {
-
-                        pla
-
+                        Playlistespotifai.Add(lista_playlist);
+                        playlist.Usuario_playlist.Add(parametro);
+                        
+                        return true;
 
                     }
 
@@ -191,9 +196,21 @@ namespace Laboratorio2definitivo
 
             return true;   
         }
+        public String VerMisPlaylists()
+        {
 
-        
-    
+            foreach(Playlist recorrido in Playlistespotifai)
+            {
+                
+
+            }
+            return "";
+         
+        }
+
+
+
+
 
 
 

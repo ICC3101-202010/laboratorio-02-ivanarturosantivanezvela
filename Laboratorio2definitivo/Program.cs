@@ -17,6 +17,7 @@ namespace Laboratorio2definitivo
                 Console.WriteLine("1: Agregar cancion a Espotifai");
                 Console.WriteLine("2: Ver canciones en Espotifai");
                 Console.WriteLine("3: Ver canciones por criterio");
+                Console.WriteLine("4: Agregar cancion a la playlist ");
                 Console.WriteLine("0: Salir del programa");
                 string comando = Console.ReadLine();
 
@@ -108,6 +109,24 @@ namespace Laboratorio2definitivo
                     Console.WriteLine("Ingresa el valor de la cancion:");
                     valor_usuario = Console.ReadLine();
                     espotifai.CancionesPorCriterio(criterio_usuario, valor_usuario);
+
+
+
+
+                }
+
+                if (comando == "4")
+                {
+                    string criterio_usuario1 = "";
+                    Console.WriteLine("Ingresa el criterio de la cancion:");
+                    criterio_usuario1 = Console.ReadLine();
+                    string valor_usuario1 = "";
+                    Console.WriteLine("Ingresa el valor de la cancion:");
+                    valor_usuario1 = Console.ReadLine();
+                    string nombre_playlist = "";
+                    Console.WriteLine("Ingresa el nombre  de la playlist:");
+                    nombre_playlist = Console.ReadLine();
+                    espotifai.GenerarPlaylist(criterio_usuario1, valor_usuario1, nombre_playlist);
 
 
 
