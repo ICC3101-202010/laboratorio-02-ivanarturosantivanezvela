@@ -19,7 +19,7 @@ namespace Laboratorio2definitivo
                 Console.WriteLine("2: Ver canciones en Espotifai");
                 Console.WriteLine("3: Ver canciones por criterio");
                 Console.WriteLine("4: Agregar cancion a la playlist ");
-                Console.WriteLine("5: Ver las palylist");
+                Console.WriteLine("5: Ver las playlist");
                 Console.WriteLine("0: Salir del programa");
                 string comando = Console.ReadLine();
 

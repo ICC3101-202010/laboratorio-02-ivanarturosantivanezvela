@@ -6,6 +6,7 @@ namespace Laboratorio2definitivo
     {
         public List<Cancion> listcanciones;
         public List<Playlist> Playlistespotifai;
+        //public Dictionary<string ,Cancion> grupo;
 
 
 
@@ -16,6 +17,7 @@ namespace Laboratorio2definitivo
         {
             listcanciones = new List<Cancion>();
             Playlistespotifai = new List<Playlist>();
+            //grupo = new Dictionary<string, Cancion>();
 
         }
 
@@ -154,13 +156,46 @@ namespace Laboratorio2definitivo
         public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
 
         {
-            
-            Playlist playlist = new Playlist(nombrePlaylist,listcanciones);
+            /*Playlist playlist = new Playlist(nombrePlaylist, listcanciones);
+
             Playlistespotifai.Add(playlist);
+
+            foreach (Cancion selector in listcanciones)
+            {
+                if (criterio == "Genero")
+
+                {
+                    if (grupo.ContainsKey(nombrePlaylist ))
+                    {
+                        Console.WriteLine("Ya hay una playlist con ese nombre");
+                    }
+                    else if (selector.Genero == valorCriterio)
+                    {
+
+                        grupo.Add(nombrePlaylist, selector);
+                        Console.WriteLine(true);
+                        return true;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
+
+                    }
+
+                }
+
+            }*/
+
+
+            Playlist playlist = new Playlist(nombrePlaylist);
+
+            Playlistespotifai.Add(playlist);
+            
             
            
             foreach(Playlist lista_playlist in Playlistespotifai)
-            {
+            {  
                int ronda = 0;
                   if (lista_playlist.Nombre_playlist == nombrePlaylist && ronda!=0)
                   {
@@ -172,15 +207,18 @@ namespace Laboratorio2definitivo
 
                 foreach (Cancion elemento in listcanciones)
                 {
+                    Console.WriteLine(elemento.Genero);
 
                     if (criterio == "Genero")
 
                     {
                         if (elemento.Genero == valorCriterio)
                         {
-
+                            
                             playlist.Usuario_playlist.Add(elemento);
-                            Console.WriteLine(1);
+
+
+                            Console.WriteLine("true");
                             return true;
 
                         }
@@ -198,15 +236,26 @@ namespace Laboratorio2definitivo
 
             }
 
-            return true;   
+           return true;   
         }
+        
         public String VerMisPlaylists()
         {
-
+            
             foreach (Playlist recorrido in Playlistespotifai)
-            {
-                Console.WriteLine(recorrido.Nombre_playlist);
-                
+            {   
+                recorrido.Informacion_playlist();
+                //Console.WriteLine(recorrido.Nombre_playlist);
+                //Console.WriteLine(grupo[recorrido.Nombre_playlist].Album);
+                /*if (grupo.ContainsKey(recorrido.Nombre_playlist))
+                {
+                    Cancion cancioncita = grupo[recorrido.Nombre_playlist];
+                    Console.WriteLine(cancioncita.Nombre);
+
+                }*/
+
+               
+
             }
             return "";
         }
