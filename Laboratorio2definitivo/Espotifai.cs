@@ -7,7 +7,7 @@ namespace Laboratorio2definitivo
         public List<Cancion> listcanciones;
         public List<Playlist> Playlistespotifai;
         int count = 0;
-        //public Dictionary<string ,Cancion> grupo;
+        public Dictionary<string ,Playlist> grupo;
 
 
 
@@ -18,7 +18,7 @@ namespace Laboratorio2definitivo
         {
             listcanciones = new List<Cancion>();
             Playlistespotifai = new List<Playlist>();
-            //grupo = new Dictionary<string, Cancion>();
+            grupo = new Dictionary<string, Playlist>();
 
         }
 
@@ -92,7 +92,7 @@ namespace Laboratorio2definitivo
                     else
                     {
                         Console.WriteLine("No hay canciones con ese criterio y/o valor");
-                        return listcanciones;
+                        
                     }
 
                 }
@@ -107,7 +107,7 @@ namespace Laboratorio2definitivo
                     else
                     {
                         Console.WriteLine("No hay canciones con ese criterio y/o valor");
-                        return listcanciones;
+                        
                     }
                 }
                 else if (criterio == "Album")
@@ -121,7 +121,7 @@ namespace Laboratorio2definitivo
                     else
                     {
                         Console.WriteLine("No hay canciones con ese criterio y/o valor");
-                        return listcanciones;
+                        
                     }
                 }
                 else if (criterio == "Nombre")
@@ -135,15 +135,15 @@ namespace Laboratorio2definitivo
                     else
                     {
                         Console.WriteLine("No hay canciones con ese criterio y/o valor");
-                        return listcanciones;
+                        
                     }
                 }
                 else
                 {
 
 
-                    Console.WriteLine("No hay canciones con ese criterio y/o valor");
-                    return listcanciones;
+                    Console.WriteLine("No hay canciones con ese criterio ");
+                 
 
                 }
 
@@ -157,11 +157,10 @@ namespace Laboratorio2definitivo
         }
         public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
 
-        {   string criterio_1= criterio;
-            Playlist playlist = new Playlist(nombrePlaylist);
-            Playlistespotifai.Add(playlist);
-            
-            foreach (Cancion cancioncita in listcanciones)
+        {   
+
+
+            /*foreach (Cancion cancioncita in listcanciones)
             {
                 if (criterio_1 == "Genero" || criterio_1=="Artista")
                 {
@@ -178,7 +177,7 @@ namespace Laboratorio2definitivo
 
 
                 }
-                /*if (criterio_1 == "Artista")
+                if (criterio_1 == "Artista")
                 {
                     if (cancioncita.Artista == valorCriterio)
                     {
@@ -191,7 +190,7 @@ namespace Laboratorio2definitivo
                         continue;
                     }
 
-                }*/
+                }
 
 
 
@@ -200,10 +199,10 @@ namespace Laboratorio2definitivo
             
             for( int i=0 ; i< Playlistespotifai.Count; i++)
             {
-                /*if (Playlistespotifai.Count == 0)
+                if (Playlistespotifai.Count == 0)
                 {
                     Playlistespotifai.Add(playlist);
-                }*/
+                }
                 if (playlist.Nombre_playlist == nombrePlaylist && count!=0)
                 {
                     Console.WriteLine("No se puede agregar nombres iguales de playlist");
@@ -217,16 +216,24 @@ namespace Laboratorio2definitivo
                     break;
                 }
             }
-            count++;
-            
-            
-           
+            count++;*/
 
-            return true;
-            /*Playlistespotifai.Add(playlist);
+
+            string criterio_1 = criterio;
+            Playlist playlist = new Playlist(nombrePlaylist);
+
+
+
+            Playlistespotifai.Add(playlist);
             
-            foreach(Playlist elegir in Playlistespotifai)
+            foreach(Playlist elegir in Playlistespotifai  )
             {   
+                if (elegir.Nombre_playlist == nombrePlaylist )
+                {   
+                    Console.WriteLine(" ");
+
+                    
+                }
                 foreach (Cancion enumerador in listcanciones)
                 {
                     if (criterio_1 == "Genero")
@@ -234,6 +241,21 @@ namespace Laboratorio2definitivo
                         if (enumerador.Genero == valorCriterio)
                         {
                             playlist.Usuario_playlist.Add(enumerador);
+                            Console.WriteLine(true);
+                            count++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay playlist con ese criterio y/o valor");
+                        }
+
+                    }
+                    else if  (criterio_1 == "Artista")
+                    {
+                        if (enumerador.Artista == valorCriterio)
+                        {
+                            playlist.Usuario_playlist.Add(enumerador);
+                            Console.WriteLine(true);
 
                         }
                         else
@@ -242,11 +264,44 @@ namespace Laboratorio2definitivo
                         }
 
                     }
+
+                    else if (criterio_1 == "Album")
+                    {
+                        if (enumerador.Album == valorCriterio)
+                        {
+                            playlist.Usuario_playlist.Add(enumerador);
+                            Console.WriteLine(true);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay playlist con ese criterio y/o valor");
+                        }
+
+                    }
+                    else if (criterio_1 == "Nombre")
+                    {
+                        if (enumerador.Nombre == valorCriterio)
+                        {
+                            playlist.Usuario_playlist.Add(enumerador);
+                            Console.WriteLine(true);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay playlist con ese criterio y/o valor");
+                        }
+
+                    }
+
+
+
+
+
+
                 }
 
-            }*/
-            
-         
+            }
+
+            return true;
             /*Playlist playlist = new Playlist(nombrePlaylist);
 
             Playlistespotifai.Add(playlist);
