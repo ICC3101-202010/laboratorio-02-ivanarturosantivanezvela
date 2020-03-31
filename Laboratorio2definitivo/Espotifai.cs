@@ -6,11 +6,12 @@ namespace Laboratorio2definitivo
     {
         public List<Cancion> listcanciones;
         public List<Playlist> Playlistespotifai;
+        int count = 0;
         //public Dictionary<string ,Cancion> grupo;
 
 
 
-    
+
 
 
         public Espotifai()
@@ -45,6 +46,7 @@ namespace Laboratorio2definitivo
 
 
                 }
+                
 
 
             }
@@ -76,7 +78,7 @@ namespace Laboratorio2definitivo
 
             foreach (Cancion lista_decanciones in listcanciones)
             {
-
+                
                 if (criterio == "Genero")
 
                 {
@@ -155,60 +157,120 @@ namespace Laboratorio2definitivo
         }
         public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
 
-        {
-            /*Playlist playlist = new Playlist(nombrePlaylist, listcanciones);
-
+        {   string criterio_1= criterio;
+            Playlist playlist = new Playlist(nombrePlaylist);
             Playlistespotifai.Add(playlist);
-
-            foreach (Cancion selector in listcanciones)
+            
+            foreach (Cancion cancioncita in listcanciones)
             {
-                if (criterio == "Genero")
-
+                if (criterio_1 == "Genero" || criterio_1=="Artista")
                 {
-                    if (grupo.ContainsKey(nombrePlaylist ))
+                    if (cancioncita.Genero == valorCriterio || cancioncita.Artista==valorCriterio)
                     {
-                        Console.WriteLine("Ya hay una playlist con ese nombre");
-                    }
-                    else if (selector.Genero == valorCriterio)
-                    {
-
-                        grupo.Add(nombrePlaylist, selector);
-                        Console.WriteLine(true);
-                        return true;
+                        playlist.Usuario_playlist.Add(cancioncita);
 
                     }
-                    else
-                    {
-                        Console.WriteLine("No hay canciones con ese criterio y/o valor");
-
+                    else if (cancioncita.Genero != valorCriterio || cancioncita.Artista != valorCriterio)
+                    {   
+                        //Console.WriteLine("Error");
+                        continue;
                     }
+
 
                 }
+                /*if (criterio_1 == "Artista")
+                {
+                    if (cancioncita.Artista == valorCriterio)
+                    {
+                        playlist.Usuario_playlist.Add(cancioncita);
 
-            }*/
+                    }
+                    else if (cancioncita.Genero != valorCriterio)
+                    {
+                        //Console.WriteLine("Error");
+                        continue;
+                    }
+
+                }*/
 
 
-            Playlist playlist = new Playlist(nombrePlaylist);
 
-            Playlistespotifai.Add(playlist);
+
+            }
+            
+            for( int i=0 ; i< Playlistespotifai.Count; i++)
+            {
+                /*if (Playlistespotifai.Count == 0)
+                {
+                    Playlistespotifai.Add(playlist);
+                }*/
+                if (playlist.Nombre_playlist == nombrePlaylist && count!=0)
+                {
+                    Console.WriteLine("No se puede agregar nombres iguales de playlist");
+                    
+
+                }
+                
+                else
+                {
+                    Playlistespotifai.Add(playlist);
+                    break;
+                }
+            }
+            count++;
             
             
            
-            foreach(Playlist lista_playlist in Playlistespotifai)
-            {  
-               int ronda = 0;
-                  if (lista_playlist.Nombre_playlist == nombrePlaylist && ronda!=0)
-                  {
+
+            return true;
+            /*Playlistespotifai.Add(playlist);
+            
+            foreach(Playlist elegir in Playlistespotifai)
+            {   
+                foreach (Cancion enumerador in listcanciones)
+                {
+                    if (criterio_1 == "Genero")
+                    {
+                        if (enumerador.Genero == valorCriterio)
+                        {
+                            playlist.Usuario_playlist.Add(enumerador);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay playlist con ese criterio y/o valor");
+                        }
+
+                    }
+                }
+
+            }*/
+            
+         
+            /*Playlist playlist = new Playlist(nombrePlaylist);
+
+            Playlistespotifai.Add(playlist);
+
+            
+            foreach (Playlist lista_playlist in Playlistespotifai)
+            {
+
+                
+
+                if (lista_playlist.Nombre_playlist == nombrePlaylist && ronda!=0)
+                {
                     
                     Console.WriteLine("Ya hay una playlist con ese nombre");
+                    
                     return false;
+                    
 
-                  }
-
+                }
+                ronda++;
                 foreach (Cancion elemento in listcanciones)
                 {
-                    Console.WriteLine(elemento.Genero);
-
+                    Console.WriteLine(elemento.Informacion());
+                    
                     if (criterio == "Genero")
 
                     {
@@ -232,11 +294,11 @@ namespace Laboratorio2definitivo
 
                     
                 }  
-                ronda++;
+             
 
             }
 
-           return true;   
+           return true; */  
         }
         
         public String VerMisPlaylists()

@@ -35,7 +35,7 @@ namespace Laboratorio2definitivo
             {
                 foreach (Cancion recorrer in Usuario_playlist)
                 {
-
+                    
                     Console.WriteLine("En la playlist {0} se encuentran las siguientes canciones: Artista: {1}, Album: {2}, Nombre: {3}, Genero: {4}",Nombre_playlist,recorrer.Artista,recorrer.Album,recorrer.Nombre,recorrer.Genero);
 
                 }
